@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class Board {
 	private int n; // size of the board, <13, 15>, odd numbers
-	private Square[][] board; // actual board as a matrix
+	public Square[][] board; // actual board as a matrix
 	
 	public Board(int n) {
 		this.n = n;
