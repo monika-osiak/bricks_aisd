@@ -109,7 +109,7 @@ public class Board {
 		return board[y][x];
 	}
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		int size = 13;
 		Board test_board = new Board(size);
 		test_board.addRandomBricks(size * size / 10);
@@ -136,5 +136,5 @@ public class Board {
 		System.out.println("\nMoves not used: " + movesNotUsed);
 		System.out.println("Moves used: " + movesUsed);
 		System.out.println(movesNotUsed + movesUsed == moves.size());
-	}
+	}*/
 }

@@ -26,24 +26,15 @@ public class Game {
 		Set<Brick> availableMoves = myBoard.getAllAvailableMoves();
 		System.out.println("AVAILABLE MOVES: " + availableMoves.size());
 		
+		/*
+		 * TO DO: main loop of the game:
+		 * while(true)
+		 *     if readline == 'start' -> generate move
+		 *     else set opponent's move on the board and generate move 
+		 */
 		
-		// main game loop 
-		for(int i = 0; i < availableMoves.size(); i++) { // this loop sucks, I know, ok?
-			for(Brick b : availableMoves) {
-				if(b.getS1().getState() == State.FULL || b.getS2().getState() == State.FULL) {
-					// availableMoves.remove(b);
-					continue;
-				}
-				b.getS1().setState();
-				b.getS2().setState();
-				System.out.println(b.toString());
-				// availableMoves.remove(b);
-				break;
-			}
-		}
+		// THIS IS TEST!!!
 		
-		System.out.println("\n" + myBoard.toString()); // board after setting all the squares
-
 		/*
 		 * I use a loop here to iterate over all of the available moves and use them if I can.
 		 */
