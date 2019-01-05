@@ -10,25 +10,25 @@ public class Game {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		
 		int n = Integer.parseInt(reader.readLine()); // get size of the board
-		Board my_board = new Board(n);
+		Board myBoard = new Board(n);
 		System.out.println("ok\n");
-		System.out.println(my_board.toString()); // clean board
+		System.out.println(myBoard.toString()); // clean board
 		
 		String[] line = reader.readLine().split(","); // get coordinates of occupied squares
 		for(int i = 0; i < line.length; i += 2) {
 			int x = Integer.parseInt(line[i].replace("{", ""));
 			int y = Integer.parseInt(line[i+1].replace("}", ""));
-			my_board.board[y][x].setState();
+			myBoard.board[y][x].setState();
 		}
 		System.out.println("ok\n");
-		System.out.println(my_board.toString()); // board with occupied squares
+		System.out.println(myBoard.toString()); // board with occupied squares
 		
-		Set<Brick> available_moves = my_board.getAllAvailableMoves();
-		System.out.println("AVAILABLE MOVES: " + available_moves.size());
+		Set<Brick> availableMoves = myBoard.getAllAvailableMoves();
+		System.out.println("AVAILABLE MOVES: " + availableMoves.size());
 
 		int movesUsed = 0;
 		int movesNotUsed = 0;
-		for(Brick b : available_moves) {
+		for(Brick b : availableMoves) {
 			System.out.print(b);
 			if(b.getS1().getState() == State.FULL || b.getS2().getState() == State.FULL) {
 				movesNotUsed++;
@@ -41,12 +41,12 @@ public class Game {
 			movesUsed++;
 		}
 		
-		System.out.println("\n" + my_board.toString()); // board after setting all the squares
+		System.out.println("\n" + myBoard.toString()); // board after setting all the squares
 		
 		System.out.println("\nSUMMARY");
 		System.out.println("Moves used in test: " + movesUsed);
 		System.out.println("Moves not used in test: " + movesNotUsed);
-		System.out.println("All moves processed? " + (movesUsed + movesNotUsed == available_moves.size()));
+		System.out.println("All moves processed? " + (movesUsed + movesNotUsed == availableMoves.size()));
 		/*
 		 * TO DO: after making a move we need to update set of the available moves
 		 *        because one is already used and some others may not be longer available
