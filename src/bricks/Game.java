@@ -25,6 +25,7 @@ public class Game {
 		
 		Set<Brick> available_moves = my_board.getAllAvailableMoves();
 		System.out.println("AVAILABLE MOVES: " + available_moves.size());
+
 		for(Brick b : available_moves) {
 			System.out.println(b);
 			b.getS1().setState();

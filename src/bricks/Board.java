@@ -116,15 +116,25 @@ public class Board {
 		System.out.println("BOARD BEFORE:");
 		System.out.println(test_board.toString());
 		
+		int movesNotUsed = 0;
+		int movesUsed = 0;
 		Set<Brick> moves = test_board.getAllAvailableMoves();
 		System.out.println("\nAVALAIBLE MOVES: " + moves.size());
 		for(Brick m : moves) {
 			System.out.println(m);
+			if(m.getS1().getState() == State.FULL || m.getS2().getState() == State.FULL) {
+				movesNotUsed++;
+				continue;
+			}
 			m.getS1().setState();
 			m.getS2().setState();
+			movesUsed++;
 		}
 		
 		System.out.println("\nBOARD AFTER:");
 		System.out.println(test_board.toString());
+		System.out.println("\nMoves not used: " + movesNotUsed);
+		System.out.println("Moves used: " + movesUsed);
+		System.out.println(movesNotUsed + movesUsed == moves.size());
 	}
 }
