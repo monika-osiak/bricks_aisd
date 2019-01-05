@@ -18,6 +18,6 @@ public class Brick {
 	}
 	
 	public String toString() {
-		return "[" + s1.toString() + " " + s2.toString() + "]";
+		return s1.toString() + "," + s2.toString();
 	}
 }

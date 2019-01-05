@@ -25,8 +25,30 @@ public class Game {
 		
 		Set<Brick> availableMoves = myBoard.getAllAvailableMoves();
 		System.out.println("AVAILABLE MOVES: " + availableMoves.size());
+		
+		
+		// main game loop 
+		for(int i = 0; i < availableMoves.size(); i++) { // this loop sucks, I know, ok?
+			for(Brick b : availableMoves) {
+				if(b.getS1().getState() == State.FULL || b.getS2().getState() == State.FULL) {
+					// availableMoves.remove(b);
+					continue;
+				}
+				b.getS1().setState();
+				b.getS2().setState();
+				System.out.println(b.toString());
+				// availableMoves.remove(b);
+				break;
+			}
+		}
+		
+		System.out.println("\n" + myBoard.toString()); // board after setting all the squares
 
-		int movesUsed = 0;
+		/*
+		 * I use a loop here to iterate over all of the available moves and use them if I can.
+		 */
+		
+		/*int movesUsed = 0;
 		int movesNotUsed = 0;
 		for(Brick b : availableMoves) {
 			System.out.print(b);
@@ -46,7 +68,8 @@ public class Game {
 		System.out.println("\nSUMMARY");
 		System.out.println("Moves used in test: " + movesUsed);
 		System.out.println("Moves not used in test: " + movesNotUsed);
-		System.out.println("All moves processed? " + (movesUsed + movesNotUsed == availableMoves.size()));
+		System.out.println("All moves processed? " + (movesUsed + movesNotUsed == availableMoves.size()));*/
+		
 		/*
 		 * TO DO: after making a move we need to update set of the available moves
 		 *        because one is already used and some others may not be longer available
