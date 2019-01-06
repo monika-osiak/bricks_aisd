@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.Set;
 
 public class Board {
-	private int n; // size of the board, <13, 15>, odd numbers
+	private int n; // size of the board, <13, 51>, odd numbers
 	public Square[][] board; // actual board as a matrix
 	
 	public Board(int n) {
@@ -23,7 +23,6 @@ public class Board {
 		for(int i = 0; i < number; i++) {
 			int x = randomGenerator.nextInt(this.n);
 			int y = randomGenerator.nextInt(this.n);
-			// System.out.println("Random move " + (i + 1) + ": (" + x + ", " + y +")");
 			this.board[y][x].setState();
 		}
 	}
@@ -66,7 +65,6 @@ public class Board {
 				} else {
 					result.append("1").append(" ");
 				}
-				// result.append(this.board[i][j].getState()).append(" ");
 			}
 			result.append("\n");
 		}
@@ -78,7 +76,6 @@ public class Board {
 		if(y < 0) {
 			y = n - 1;
 		}
-		// System.out.println("upper: " + x + " " + y);
 		return board[y][x];
 	}
 	
@@ -87,7 +84,6 @@ public class Board {
 		if(y >= n) {
 			y = 0;
 		}
-		// System.out.println("lower: " + x + " " + y);
 		return board[y][x];
 	}
 	
@@ -96,7 +92,6 @@ public class Board {
 		if(x < 0) {
 			x = n - 1;
 		}
-		// System.out.println("left: " + x + " " + y);
 		return board[y][x];
 	}
 	
@@ -105,36 +100,6 @@ public class Board {
 		if(x >= n) {
 			x = 0;
 		}
-		// System.out.println("right: " + x + " " + y);
 		return board[y][x];
 	}
-
-	/*public static void main(String[] args) {
-		int size = 13;
-		Board test_board = new Board(size);
-		test_board.addRandomBricks(size * size / 10);
-		System.out.println("BOARD BEFORE:");
-		System.out.println(test_board.toString());
-		
-		int movesNotUsed = 0;
-		int movesUsed = 0;
-		Set<Brick> moves = test_board.getAllAvailableMoves();
-		System.out.println("\nAVALAIBLE MOVES: " + moves.size());
-		for(Brick m : moves) {
-			System.out.println(m);
-			if(m.getS1().getState() == State.FULL || m.getS2().getState() == State.FULL) {
-				movesNotUsed++;
-				continue;
-			}
-			m.getS1().setState();
-			m.getS2().setState();
-			movesUsed++;
-		}
-		
-		System.out.println("\nBOARD AFTER:");
-		System.out.println(test_board.toString());
-		System.out.println("\nMoves not used: " + movesNotUsed);
-		System.out.println("Moves used: " + movesUsed);
-		System.out.println(movesNotUsed + movesUsed == moves.size());
-	}*/
 }
